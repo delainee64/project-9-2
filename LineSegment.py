@@ -22,7 +22,7 @@ class Point:
 
     def distance_to(self, other):
         """Returns the distance between both points using the distance formula"""
-        return ((self.__x_coord - other.get_x_coord()) ** 2 + (self.__y_coord - other.get_y_coord()) ** 2) ** 0.5
+        return (abs((self.__x_coord - other.get_x_coord()) ** 2 + (self.__y_coord - other.get_y_coord()) ** 2)) ** 0.5
 
 
 class LineSegment:
@@ -46,16 +46,15 @@ class LineSegment:
 
     def is_parallel_to(self, other):
         """Returns whether the line segment is parallel to or not parallel to the line segment being passed"""
-        if self.slope() == other.slope():
+        if self.slope == other.slope:
             return True
         else:
             return False
 
     def slope(self):
         """Returns the slope of the LineSegment"""
-        return (self.__endpoint_2.get_x_coord() - self.__endpoint_1.get_x_coord()) / \
-               (self.__endpoint_2.get_y_coord() -
-                self.__endpoint_1.get_y_coord())
+        return (self.__endpoint_2.get_y_coord() - self.__endpoint_1.get_y_coord()) / (self.__endpoint_2.get_x_coord() -
+                                                                                      self.__endpoint_1.get_x_coord())
 
 
 # point_1 = Point(7, 4)
